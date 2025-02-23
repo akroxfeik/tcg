@@ -15,7 +15,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
 import com.arc.tcg.R
-import com.arc.tcg.data.model.CardBriefDetails
 import com.arc.tcg.utils.getImage
 
 @Composable
