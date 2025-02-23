@@ -1,6 +1,5 @@
 package com.arc.tcg.ui.screens.cardslist
 
-import android.util.Log
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -26,9 +25,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.SubcomposeAsyncImage
 import com.arc.tcg.data.model.TCGCard
 import com.arc.tcg.ui.screens.LoadingBar
+import com.arc.tcg.utils.getImage
 
 @Composable
-fun CardList(viewModel: CardListViewModel = hiltViewModel()) {
+fun CardList(viewModel: CardListViewModel = hiltViewModel(), onItemClicked: (itemId: String) -> Unit) {
     Box {
         Column(Modifier.fillMaxSize()) {
             LazyVerticalGrid(
@@ -36,9 +36,7 @@ fun CardList(viewModel: CardListViewModel = hiltViewModel()) {
                 modifier = Modifier.weight(1f)
             ) {
                 items(viewModel.state.cards) { item ->
-                    ItemCard(item = item, onItemClicked = { id ->
-                        Log.d("TESTE", "Card ID: $id")
-                    })
+                    ItemCard(item = item, onItemClicked = onItemClicked)
                 }
             }
         }
@@ -87,6 +85,3 @@ fun ItemCard(
     }
 }
 
-fun getImage(url: String?): String {
-    return "$url/low.png"
-}
