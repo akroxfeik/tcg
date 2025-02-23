@@ -1,5 +1,6 @@
 package com.arc.tcg.di
 
+import com.arc.tcg.BuildConfig
 import com.arc.tcg.data.api.ApiHelper
 import com.arc.tcg.data.api.ApiHelperImpl
 import com.arc.tcg.data.api.ApiService
@@ -17,7 +18,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class ApplicationModule {
     @Provides
-    fun provideBaseUrl() = "https://api.tcgdex.net/v2"
+    fun provideBaseUrl() = "https://api.tcgdex.net/v2/"
 
     @Provides
     @Singleton
