@@ -11,5 +11,5 @@ interface ApiService {
     suspend fun getCards(): Response<List<TCGCard>>
 
     @GET("en/cards/{id}")
-    suspend fun getCard(@Path("id") id: String): Response<TCGCardDetail>
+    suspend fun getCard(@Path("id") id: String?): Response<TCGCardDetail>
 }

@@ -9,5 +9,5 @@ class ApiHelperImpl @Inject constructor(private val apiService: ApiService) : Ap
 
     override suspend fun getCards(): Response<List<TCGCard>> = apiService.getCards()
 
-    override suspend fun getCard(id: String): Response<TCGCardDetail> = apiService.getCard(id)
+    override suspend fun getCard(id: String?): Response<TCGCardDetail> = apiService.getCard(id)
 }
