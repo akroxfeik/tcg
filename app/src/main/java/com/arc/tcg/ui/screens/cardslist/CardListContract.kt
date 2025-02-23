@@ -1,10 +1,10 @@
 package com.arc.tcg.ui.screens.cardslist
 
-import com.arc.tcg.data.model.TCGCard
+import com.arc.tcg.data.model.CardBrief
 
 class CardListContract {
     data class State (
-        val cards: List<TCGCard> = listOf(),
+        val cards: List<CardBrief> = listOf(),
         val isLoading: Boolean  = false
     )
 }

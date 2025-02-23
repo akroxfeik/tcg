@@ -23,7 +23,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.SubcomposeAsyncImage
-import com.arc.tcg.data.model.TCGCard
+import com.arc.tcg.data.model.CardBrief
 import com.arc.tcg.ui.screens.LoadingBar
 import com.arc.tcg.utils.getImage
 
@@ -49,7 +49,7 @@ fun CardList(viewModel: CardListViewModel = hiltViewModel(), onItemClicked: (ite
 
 @Composable
 fun ItemCard(
-    item: TCGCard,
+    item: CardBrief,
     onItemClicked: (id: String) -> Unit = {}
 ) {
     Card(
