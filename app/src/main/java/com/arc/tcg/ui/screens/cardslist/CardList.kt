@@ -32,7 +32,7 @@ fun CardList(viewModel: CardListViewModel = hiltViewModel()) {
     Box {
         Column(Modifier.fillMaxSize()) {
             LazyVerticalGrid(
-                columns = GridCells.Adaptive(128.dp),
+                columns = GridCells.Adaptive(150.dp),
                 modifier = Modifier.weight(1f)
             ) {
                 items(viewModel.state.cards) { item ->
@@ -62,7 +62,7 @@ fun ItemCard(
     ) {
         Column(
             modifier = Modifier
-                .size(200.dp)
+                .size(300.dp)
                 .padding(5.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
@@ -70,7 +70,7 @@ fun ItemCard(
             SubcomposeAsyncImage(
                 model = getImage(item.image),
                 contentDescription = item.name,
-                modifier = Modifier.size(100.dp),
+                modifier = Modifier.size(250.dp),
                 loading = {
                     CircularProgressIndicator(Modifier.size(25.dp))
                 },
@@ -80,8 +80,8 @@ fun ItemCard(
                 text = item.name,
                 textAlign = TextAlign.Center,
                 overflow = TextOverflow.Ellipsis,
-                maxLines = 2,
-                minLines = 2
+                maxLines = 1,
+                minLines = 1
             )
         }
     }
