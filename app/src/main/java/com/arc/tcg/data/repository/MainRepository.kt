@@ -5,4 +5,6 @@ import javax.inject.Inject
 
 class MainRepository @Inject constructor(private val apiHelper: ApiHelper) {
     suspend fun getCards() =  apiHelper.getCards()
+
+    suspend fun getCard(id: String) = apiHelper.getCard(id)
 }
