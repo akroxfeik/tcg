@@ -59,9 +59,7 @@ fun ItemCard(
             .padding(5.dp)
     ) {
         Column(
-            modifier = Modifier
-                .size(300.dp)
-                .padding(5.dp),
+            modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ){
@@ -72,7 +70,7 @@ fun ItemCard(
                 loading = {
                     CircularProgressIndicator(Modifier.size(25.dp))
                 },
-                contentScale = ContentScale.Crop
+                contentScale = ContentScale.Fit
             )
             Text(
                 text = item.name,
