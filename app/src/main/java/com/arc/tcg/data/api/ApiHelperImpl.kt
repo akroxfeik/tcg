@@ -1,7 +1,7 @@
 package com.arc.tcg.data.api
 
 import com.arc.tcg.data.model.CardBrief
-import com.arc.tcg.data.model.TCGCardDetail
+import com.arc.tcg.data.model.CardBriefDetails
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -9,5 +9,5 @@ class ApiHelperImpl @Inject constructor(private val apiService: ApiService) : Ap
 
     override suspend fun getCards(): Response<List<CardBrief>> = apiService.getCards()
 
-    override suspend fun getCard(id: String?): Response<TCGCardDetail> = apiService.getCard(id)
+    override suspend fun getCard(id: String?): Response<CardBriefDetails> = apiService.getCard(id)
 }

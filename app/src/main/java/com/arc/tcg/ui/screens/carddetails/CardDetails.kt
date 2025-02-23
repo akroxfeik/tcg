@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.SubcomposeAsyncImage
-import com.arc.tcg.data.model.TCGCardDetail
+import com.arc.tcg.data.model.CardBriefDetails
 import com.arc.tcg.utils.ImageQuality
 import com.arc.tcg.utils.getImage
 
@@ -30,7 +30,7 @@ fun CardDetails(viewModel: CardDetailsViewModel = hiltViewModel()) {
 }
 
 @Composable
-fun CardDetails(item: TCGCardDetail?) {
+fun CardDetails(item: CardBriefDetails?) {
     item?.let {
         Column(
             Modifier

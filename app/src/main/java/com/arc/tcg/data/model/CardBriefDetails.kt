@@ -2,7 +2,7 @@ package com.arc.tcg.data.model
 
 import com.squareup.moshi.Json
 
-data class TCGCardDetail(
+data class CardBriefDetails(
     @Json(name = "category")
     val category: String,
     @Json(name = "id")
