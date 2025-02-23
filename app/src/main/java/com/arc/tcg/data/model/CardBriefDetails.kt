@@ -4,64 +4,103 @@ import com.squareup.moshi.Json
 
 data class CardBriefDetails(
     @Json(name = "category")
-    val category: String,
+    val category: String?,
     @Json(name = "id")
-    val id: String,
+    val id: String?,
     @Json(name = "illustrator")
-    val illustrator: String,
+    val illustrator: String?,
     @Json(name = "image")
-    val image: String,
+    val image: String?,
     @Json(name = "localId")
-    val localId: String,
+    val localId: String?,
     @Json(name = "name")
-    val name: String,
+    val name: String?,
     @Json(name = "rarity")
-    val rarity: String,
+    val rarity: String?,
     @Json(name = "set")
-    val set: TCGSet,
+    val set: TCGSet?,
     @Json(name = "variants")
-    val variants: TCGVariant,
+    val variants: TCGVariant?,
     @Json(name = "hp")
-    val hp: String,
+    val hp: String?,
     @Json(name = "types")
-    val types: List<String>,
+    val types: List<String>?,
     @Json(name = "evolveFrom")
-    val evolveFrom: String,
+    val evolveFrom: String?,
     @Json(name = "description")
-    val description: String,
+    val description: String?,
     @Json(name = "stage")
-    val stage: String
+    val stage: String?,
+    @Json(name = "attacks")
+    val attacks: List<TCGAttack>?,
+    @Json(name = "weaknesses")
+    val weaknesses: List<TCGWeakness>?,
+    @Json(name = "resistences")
+    val resistances: List<TCGWeakness>?,
+    @Json(name = "retreat")
+    val retreat: Int?,
+    @Json(name = "regulationMark")
+    val regulationMark: String?,
+    @Json(name = "legal")
+    val legal: TCGLegal?,
+    @Json(name = "updated")
+    val updated: String?
 )
 
 data class TCGSet(
     @Json(name = "cardCount")
-    val cardCount: TCGCardCount,
+    val cardCount: TCGCardCount?,
     @Json(name = "id")
-    val id: String,
+    val id: String?,
     @Json(name = "logo")
-    val logo: String,
+    val logo: String?,
     @Json(name = "name")
-    val name: String,
+    val name: String?,
     @Json(name = "symbol")
-    val symbol: String
+    val symbol: String?
 )
 
 data class TCGCardCount(
     @Json(name = "official")
-    val official: Int,
+    val official: Int?,
     @Json(name = "total")
-    val total: Int
+    val total: Int?
 )
 
 data class TCGVariant(
     @Json(name = "firstEdition")
-    val firstEdition: Boolean,
+    val firstEdition: Boolean?,
     @Json(name = "holo")
-    val holo: Boolean,
+    val holo: Boolean?,
     @Json(name = "normal")
-    val normal: Boolean,
+    val normal: Boolean?,
     @Json(name = "reverse")
-    val reverse: Boolean,
+    val reverse: Boolean?,
     @Json(name = "wPromo")
-    val wPromo: Boolean
+    val wPromo: Boolean?
+)
+
+data class TCGAttack(
+    @Json(name = "cost")
+    val cost: List<String>?,
+    @Json(name = "name")
+    val name: String?,
+    @Json(name = "effect")
+    val effect: String?,
+    @Json(name = "damage")
+    val damage: String?
+)
+
+data class TCGWeakness(
+    @Json(name = "type")
+    val type: String?,
+    @Json(name = "value")
+    val value: String?
+)
+
+data class TCGLegal(
+    @Json(name = "standard")
+    val standard: Boolean?,
+    @Json(name = "expanded")
+    val expanded: Boolean?
 )
