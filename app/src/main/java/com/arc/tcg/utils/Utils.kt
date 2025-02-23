@@ -1,5 +1,12 @@
 package com.arc.tcg.utils
 
-fun getImage(url: String?): String {
-    return "$url/low.png"
+enum class ImageQuality {
+    HIGH,
+    LOW
+}
+fun getImage(url: String?, quality: ImageQuality = ImageQuality.LOW): String {
+    return when (quality) {
+        ImageQuality.HIGH -> "$url/high.png"
+        else -> "$url/low.png"
+    }
 }
