@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.Packaging
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -43,6 +45,16 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.8"
     }
+    testOptions {
+        packaging {
+            resources.excludes.add("META-INF/*")
+        }
+        packagingOptions {
+            jniLibs {
+                useLegacyPackaging = true
+            }
+        }
+    }
 }
 
 dependencies {
@@ -71,7 +83,9 @@ dependencies {
 
     // Testing dependencies
     testImplementation(libs.junit)
+    testImplementation(libs.mockk)
     androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.mockk.android)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
