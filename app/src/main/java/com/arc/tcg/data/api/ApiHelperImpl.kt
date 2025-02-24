@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class ApiHelperImpl @Inject constructor(private val apiService: ApiService) : ApiHelper {
 
-    override suspend fun getCards(): Response<List<CardBrief>> = apiService.getCards()
+    override suspend fun getCards(name: String?): Response<List<CardBrief>> = apiService.getCards(name)
 
     override suspend fun getCard(id: String?): Response<CardBriefDetails> = apiService.getCard(id)
 }
