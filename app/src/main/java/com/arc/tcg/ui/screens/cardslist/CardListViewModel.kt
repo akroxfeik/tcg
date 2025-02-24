@@ -27,15 +27,19 @@ class CardListViewModel @Inject constructor (
         viewModelScope.launch { getCards() }
     }
 
-    private fun getCards() {
+    private fun getCards(name: String? = "") {
         viewModelScope.launch {
             val isConnected = networkHelper.isNetworkConnected()
-            val cardList = if(isConnected) repo.getCards() else null
+            val cardList = if(isConnected) repo.getCards(name) else null
 
             state = state.copy(
                 cards = cardList?.body() ?: listOf(),
                 isLoading = false
             )
         }
+    }
+
+    fun searchCards(name: String?) {
+        getCards(name)
     }
 }
