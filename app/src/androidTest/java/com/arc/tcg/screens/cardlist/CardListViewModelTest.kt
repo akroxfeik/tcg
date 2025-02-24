@@ -42,7 +42,7 @@ class CardListViewModelTest {
             "1", "Test Card", "test_url", image = "https://assets.tcgdex.net/en/swsh/swsh3/136"
         ))
         coEvery { networkHelper.isNetworkConnected() } returns true
-        coEvery { repository.getCards() } returns Response.success(testCards)
+        coEvery { repository.getCards("") } returns Response.success(testCards)
 
         viewModel = CardListViewModel(repository, networkHelper)
         testDispatcher.scheduler.advanceUntilIdle()
