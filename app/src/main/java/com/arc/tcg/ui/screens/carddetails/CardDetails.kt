@@ -56,6 +56,9 @@ fun CardDetails(item: CardBriefDetails?) {
             item.evolveFrom?.let {
                 TextProperty(item.evolveFrom, R.string.evolveFrom)
             }
+            item.illustrator?.let {
+                TextProperty(item.illustrator, R.string.illustrator)
+            }
         }
     }
 }
