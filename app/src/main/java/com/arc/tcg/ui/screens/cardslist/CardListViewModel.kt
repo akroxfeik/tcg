@@ -25,7 +25,7 @@ class CardListViewModel @Inject constructor (
     )
 
     init {
-        viewModelScope.launch { getCards("alolan vulpix") }
+        viewModelScope.launch { getCards() }
     }
 
     private fun getCards(name: String? = "") {
