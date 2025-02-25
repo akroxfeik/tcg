@@ -1,6 +1,5 @@
 package com.arc.tcg.ui.screens.cardslist
 
-import android.util.Log
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -36,11 +35,11 @@ import com.arc.tcg.R
 import com.arc.tcg.data.model.CardBrief
 import com.arc.tcg.ui.screens.CustomImage
 import com.arc.tcg.ui.screens.LoadingBar
-import com.arc.tcg.utils.internetConnectivityChanges
+import com.arc.tcg.utils.InternetConnectivityChanges
 
 @Composable
 fun CardList(viewModel: CardListViewModel = hiltViewModel(), onItemClicked: (itemId: String) -> Unit) {
-    var text by remember{ mutableStateOf("alolan vulpix") }
+    var text by remember{ mutableStateOf("") }
     Box {
         Column(Modifier.fillMaxSize()) {
             OutlinedTextField(
@@ -87,7 +86,7 @@ fun CardList(viewModel: CardListViewModel = hiltViewModel(), onItemClicked: (ite
      * - Internet connection changes (connects into network)
      * - App retry loading data
      */
-    internetConnectivityChanges(onAvailable = {
+    InternetConnectivityChanges(onAvailable = {
         viewModel.reconnection(text)
     }, onLost = {})
 }

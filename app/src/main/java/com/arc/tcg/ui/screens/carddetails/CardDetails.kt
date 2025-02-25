@@ -22,7 +22,7 @@ import com.arc.tcg.data.model.CardBriefDetails
 import com.arc.tcg.ui.screens.CustomImage
 import com.arc.tcg.ui.screens.LoadingBar
 import com.arc.tcg.ui.screens.TextProperty
-import com.arc.tcg.utils.internetConnectivityChanges
+import com.arc.tcg.utils.InternetConnectivityChanges
 
 @Composable
 fun CardDetails(viewModel: CardDetailsViewModel = hiltViewModel()) {
@@ -37,7 +37,7 @@ fun CardDetails(viewModel: CardDetailsViewModel = hiltViewModel()) {
         }
         CardDetails(viewModel.state.card)
     }
-    internetConnectivityChanges(onAvailable = {
+    InternetConnectivityChanges(onAvailable = {
         viewModel.reconnection()
     }, onLost = {})
 }

@@ -37,7 +37,7 @@ class NetworkHelper @Inject constructor(@ApplicationContext private val context:
 }
 
 @Composable
-fun internetConnectivityChanges(
+fun InternetConnectivityChanges(
     onAvailable: (network: Network) -> Unit,
     onLost: (network: Network) -> Unit
 ) {
