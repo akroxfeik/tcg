@@ -7,4 +7,5 @@
     <string name="search">Search your Pokemon</string>
     <string name="clear_text">Clear Text</string>
     <string name="search_text">Search</string>
+    <string name="not_connected">No connection.\nPlease check if you are connected to the internet.</string>
 </resources>

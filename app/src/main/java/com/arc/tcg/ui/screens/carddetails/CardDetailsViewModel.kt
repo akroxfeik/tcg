@@ -22,12 +22,15 @@ class CardDetailsViewModel @Inject constructor (
     var state by mutableStateOf(
         CardDetailsContract.State(
             card = null,
-            isLoading = true
+            isLoading = true,
+            isConnected = true,
+            itemId = ""
         )
     )
 
     init {
         val itemId = stateHandle.get<String>(Arg.ID)
+        state = state.copy(itemId = itemId!!)
         viewModelScope.launch { getCard(itemId) }
     }
 
@@ -35,15 +38,21 @@ class CardDetailsViewModel @Inject constructor (
         viewModelScope.launch {
             if(networkHelper.isNetworkConnected()) {
                 repo.getCard(id).let {
-                    if(it.isSuccessful) {
-                        state = state.copy(card = it.body(), isLoading = false)
-                    } else {
-                        state = state.copy(isLoading = false)
-                    }
+                    state = if(it.isSuccessful) {
+                                state.copy(card = it.body(), isLoading = false, isConnected = true)
+                            } else {
+                                state.copy(isLoading = false, isConnected = true)
+                            }
                 }
             } else {
-                state = state.copy(isLoading = false)
+                state = state.copy(isLoading = false, isConnected = false)
             }
+        }
+    }
+
+    fun reconnection() {
+        if(state.card == null) {
+            getCard(state.itemId)
         }
     }
 }

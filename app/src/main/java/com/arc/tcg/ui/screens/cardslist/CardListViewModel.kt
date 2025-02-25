@@ -19,12 +19,13 @@ class CardListViewModel @Inject constructor (
     var state by mutableStateOf(
         CardListContract.State(
             cards = listOf(),
-            isLoading = true
+            isLoading = true,
+            isConnected = true
         )
     )
 
     init {
-        viewModelScope.launch { getCards() }
+        viewModelScope.launch { getCards("alolan vulpix") }
     }
 
     private fun getCards(name: String? = "") {
@@ -34,12 +35,19 @@ class CardListViewModel @Inject constructor (
 
             state = state.copy(
                 cards = cardList?.body() ?: listOf(),
-                isLoading = false
+                isLoading = false,
+                isConnected = isConnected
             )
         }
     }
 
     fun searchCards(name: String?) {
         getCards(name)
+    }
+
+    fun reconnection(name: String?) {
+        if(state.cards.isEmpty()) {
+            getCards(name)
+        }
     }
 }
